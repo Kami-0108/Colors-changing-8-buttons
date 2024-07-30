@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .mainContainer {
+        display: flex;
+        flex-wrap: wrap;
+        border-style: solid;
+        width: 800px;
+        height: 300px;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .seriesHolder {
+        border-style: dashed;
+        border-radius: 5px;
+        width: 170px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .seriesHolder:hover {
+        cursor: pointer;
+      }
+      .seriesHolder1:hover {
+        background-color: red;
+      }
+      .seriesHolder2:hover {
+        background-color: rgb(251, 255, 0);
+      }
+      .seriesHolder3:hover {
+        background-color: rgb(115, 255, 0);
+      }
+      .seriesHolder4:hover {
+        background-color: rgb(0, 255, 234);
+      }
+      .seriesHolder5:hover {
+        background-color: rgb(0, 47, 255);
+      }
+      .seriesHolder6:hover {
+        background-color: rgb(204, 0, 255);
+      }
+      .seriesHolder7:hover {
+        background-color: rgb(255, 0, 149);
+      }
+      .seriesHolder8:hover {
+        background-color: rgb(255, 136, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mainContainer" id="mainContainer"></div>
+    <script>
+      const mainContainer = document.getElementById("mainContainer");
+      for (let i = 1; i <= 8; i++) {
+        const seriesHolder = document.createElement("button");
+        seriesHolder.className = `seriesHolder seriesHolder${i}`;
+        seriesHolder.textContent = i;
+        mainContainer.appendChild(seriesHolder);
+      }
+      function changeBackgroundColor() {
+        document.body.style.backgroundColor = "rgb(200,14,28)";
+        setTimeout(function () {
+          document.body.style.backgroundColor = "white";
+        }, 3000);
+      }
+      // Attach event listeners to each seriesHolder element
+      let seriesHolders = document.querySelectorAll(".seriesHolder");
+      seriesHolders.forEach(function (seriesHolder) {
+        seriesHolder.addEventListener("click", changeBackgroundColor);
+      });
+    </script>
+  </body>
+</html>
